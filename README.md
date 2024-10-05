@@ -2,3 +2,7 @@
 Repository for Assignment 4-- Weather and Earthquake Map
 
 #Second time to change yeah!
+
+#Commit Issues have they resolved?
+
+
