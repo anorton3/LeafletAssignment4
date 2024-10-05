@@ -6,7 +6,7 @@ Repository for Assignment 4-- Weather and Earthquake Map
 
 # Weather Map
 
-<https://anorton3.github.io/LeafletAssingment4/Weather_Map>
+<https://anorton3.github.io/LeafletAssingment4/Weather_Map/>
 
 
 # Earthquake Map
