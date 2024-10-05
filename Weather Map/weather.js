@@ -1,21 +1,19 @@
 var map = L.map('weathermap').setView([38, -95], 4);
-
-var CartoDB_DarkMatterNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 20
-}).addTo(map);
+        L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        { attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>' }
+        ).addTo(map);
 
 var radarURL = 'https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi';
 var radarDisplayOptions = {
     layers: 'nexrad-n0r-900913',
     format: 'image/png',
-    transparent: true,
-    maxZoom: 20
+    transparent: true
 };
+
 var radar = L.tileLayer.wms(radarURL, radarDisplayOptions).addTo(map);
 
-var weatherAlertsUrl = 'https://www.weather.gov/documentation/services-web-api#/default/get_alerts_active';
+var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?region_type=land';
 
 $.getJSON(weatherAlertsUrl, function(data) {
     L.geoJSON(data, {
