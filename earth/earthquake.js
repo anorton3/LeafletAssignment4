@@ -20,10 +20,12 @@ var earthurl= 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day
 
 $.getJSON(earthurl, function(data) {
     L.geoJSON(data, {
-        pointToLayer: function(feature, latlng) {
-            var markerColor = 'orange'
-            if (feature.properties.type ==='earthquake') markerColor = 'red';
-            return { color: markerColor };
+        style: function(feature) {
+            var alertColor = 'orange';
+            if (feature.properties.severity === 'Severe') alertColor = 'red';
+            else if (feature.properties.severity === 'Minor') alertColor = 'pink';
+            else if (feature.properties.severity === 'Moderate') alertColor = 'green';
+            return { color: alertColor };
         },
         onEachFeature: function(feature, layer) {  
             layer.bindPopup(feature.properties.title);
