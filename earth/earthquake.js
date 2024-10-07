@@ -20,7 +20,7 @@ var earthurl= 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day
 
 $.getJSON(earthurl, function(data) {
     L.geoJSON(data, {
-        style: function(feature) {
+        pointToLayer: function(feature) {
             var mag = feature.properties.mag;
             var markerColor = 'orange'
             if (feature.properties.mag >=5) markerColor = 'red';
