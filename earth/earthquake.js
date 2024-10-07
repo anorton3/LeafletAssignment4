@@ -21,14 +21,9 @@ var earthurl= 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day
 $.getJSON(earthurl, function(data) {
     L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
-            var mag = feature.properties.mag;
             var markerColor = 'orange'
-            if (feature.properties.mag >=5) markerColor = 'red';
-            else if (feature.properties.mag >= 4) markerColor = 'blue';
-            else if (feature.properties.mag >= 3) markerColor = 'yellow';
-            else if (feature.properties.mag >= 2) markerColor = 'purple';
-            else if (feature.properties.mag >= 1) markerColor = 'green';
-            return L.circleMarker(latlng);
+            if (feature.properties.type ==='earthquake') markerColor = 'red';
+            return { color: markerColor };
         },
         onEachFeature: function(feature, layer) {  
             layer.bindPopup(feature.properties.title);
