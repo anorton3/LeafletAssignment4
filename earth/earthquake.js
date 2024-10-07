@@ -22,9 +22,7 @@ $.getJSON(earthurl, function(data) {
     L.geoJSON(data, {
         style: function(feature) {
             var alertColor = 'orange';
-            if (feature.properties.severity === 'Severe') alertColor = 'red';
-            else if (feature.properties.severity === 'Minor') alertColor = 'pink';
-            else if (feature.properties.severity === 'Moderate') alertColor = 'green';
+            if (feature.properties.type === 'earthquake') alertColor = 'red';
             return { color: alertColor };
         },
         onEachFeature: function(feature, layer) {  
