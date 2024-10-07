@@ -29,9 +29,8 @@ $.getJSON(earthurl, function(data) {
         },
         
         onEachFeature: function (feature, layer) {  
-            layer.bindPopup(feature.properties.title);
-            layer.bindPopup(feature.properties.mag);
-            layer.bindPopup(feature.properties.time);
+            layer.bindPopup(feature.properties.title);(feature.properties.mag); (feature.properties.time);
+
 
         }
     }).addTo(map);
