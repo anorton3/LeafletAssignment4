@@ -27,9 +27,15 @@ $.getJSON(earthurl, function(data) {
             else if (feature.properties.mag === 1 ) alertColor = 'pink'
             return { color: alertColor };
         },
-        onEachFeature: function(feature, layer) {  
+        style : function(feature){
+            var point = 'earthquake';
+                if(feature.properties.type === 'earthquake') point = 'circle'
+                return {point: point}
+        
+        onEachFeature: function (feature, layer) {  
             layer.bindPopup(feature.properties.title);
         }
+    }
     }).addTo(map);
 });
 
