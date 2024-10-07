@@ -8,15 +8,6 @@ var CartoDB_DarkMatterNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/
 }).addTo(map);
 
 
-var radarURL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson';
-var radarDisplayOptions = {
-    layers: 'nexrad-n0r-900913',
-    format: 'image/png',
-    transparent: true,
-    maxZoom: 20
-};
-var radar = L.tileLayer.wms(radarURL, radarDisplayOptions).addTo(map);
-
 var earthurl = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson';
 
 $.getJSON(earthurl, function(data) {
