@@ -28,7 +28,7 @@ $.getJSON(earthurl, function(data) {
             else if (feature.properties.mag >= 3) markerColor = 'yellow';
             else if (feature.properties.mag >= 2) markerColor = 'purple';
             else if (feature.properties.mag >= 1) markerColor = 'green';
-            return { color: markerColor };
+            return L.circleMarker(latlng);
         },
         onEachFeature: function(feature, layer) {  
             layer.bindPopup(feature.properties.title);
