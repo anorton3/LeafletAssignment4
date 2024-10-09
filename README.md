@@ -1,4 +1,4 @@
-# LeafletAssignment4
+# LeafletAssignment4 -- Amanda Norton
 Repository for Assignment 4-- Weather and Earthquake Map
 
 # Example Map--UW
